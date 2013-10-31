@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Keigo AOKI" />
+    <title>ズカンハンティング</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>にいがたのさかな100選</h1>
+      <p>新潟県沿岸域および河川域で生息する魚類や水生植物のうち、新潟県の漁業にとって重要な水産生物100種類が「にいがたのさかな100選」として制定されています。そのうち魚類は69種類を占めています。</p>
+      <p>参考URL : <a href="http://www.pref.niigata.lg.jp/suikai/sakanahyakusen.html">http://www.pref.niigata.lg.jp/suikai/sakanahyakusen.html</a></p>
+    </header>
+
+    <article id="app">
+      <form id="form" class="pure-form pure-g">
+        <fieldset>
+          <div class="pure-u-1">
+            <input id="url" type="text" class="pure-input-2-3" placeholder="My図鑑のURLを入力してください" />
+            <button id="submit" class="pure-button"><i class="icon-search"></i></button>
+          </div>
+        </fieldset>
+      </form>
+      <div id="result">69種類のうち<br /><span id="point">?</span>種類を<br />コレクションしています</div>
+      <div id="list" class="pure-g-r"></div>
+    </article>
+    <div id="loading"><img src="img/loading.gif" width="50" height="50" alt="" /></div>
+
+    <footer>
+      <p><a href="http://zukan.com/">ズカンドットコム</a></p>
+    </footer>
+
+    <script type="text/template" id="item-template">
+      <div class="l-box">
+        <div class="thumbnail"><img src="<%= image %>" alt="" /></div>
+        <h2><%= name %></h2>
+        <div class="link"><span>ズカンの名称</span><ul><%= link %></ul></div>
+        <div class="stamp">済</div>
+      </div>
+    </script>
+    <script type="text/template" id="link-template">
+      <li><a href="http://zukan.com/fish/internal<%= id %>"><%= name %></a></li>
+    </script>
+
+    <script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="lib/underscore-min.js"></script>
+    <script type="text/javascript" src="lib/backbone-min.js"></script>
+    <script type="text/javascript" src="data/fish-niigata.js"></script>
+    <script type="text/javascript" src="hunting.js"></script>
+  </body>
+</html>
