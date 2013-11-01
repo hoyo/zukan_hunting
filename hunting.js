@@ -17,19 +17,6 @@ var DATA = DATA || null;
         this.set('nameOfZukan', [this.get('name')]);
       }
     },
-    /*
-    toJSONString: function(options) {
-      var obj = this.toObject();
-      var result = '{"name":"' + obj.name + '","nameOfZukan":["';
-      if (_.isEmpty(obj.nameOfZukan)) {
-        result += obj.name;
-      } else {
-        result += obj.nameOfZukan.join('","');
-      }
-      result += '"],"species":["' + obj.species.join('","') + '"]}';
-      return result;
-    },
-    */
     stamp: function(species, url, image) {
       if (!_.contains(this.get('species'), species)) {
         return false;
@@ -50,14 +37,6 @@ var DATA = DATA || null;
     initialize: function() {
       console.log('All models were loaded.');
     },
-    /*
-    toJSONString: function(options) {
-      var result = this.map(function(model) {
-        return model.toJSONString(options);
-      });
-      return '[' + result.join(',') + ']';
-    },
-    */
     match: function(species, url, image) {
       this.find(function(model) {
         return model.stamp(species, url, image);
@@ -108,7 +87,6 @@ var DATA = DATA || null;
       app.selection = new Selection(_.map(DATA, function(d) {
         return new Item(d);
       }));
-      //this.listenTo(app.selection, 'reset', this.render);
       this.render();
     },
     render: function() {
@@ -159,5 +137,4 @@ var DATA = DATA || null;
   });
 
   new AppView();
-  //console.log(app.selection.length);
 })();
